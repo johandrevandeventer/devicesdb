@@ -7,17 +7,17 @@ import (
 
 type Device struct {
 	gorm.Model
-	ID                     uuid.UUID `gorm:"type:char(255);primaryKey"`
-	Gateway                string    `gorm:"type:char(255);not null"`
-	Controller             string    `gorm:"type:char(255);not null"`
-	ControllerSerialNumber string    `gorm:"type:char(255);not null"`
-	DeviceType             string    `gorm:"type:char(255);not null"`
-	DeviceSerialNumber     string    `gorm:"type:char(255);not null;unique"`
-	DeviceName             string    `gorm:"type:char(255);not null"`
-	BuildingURL            string    `gorm:"type:char(255);not null"`
-	AuthToken              string    `gorm:"type:text;not null"`
-	SiteID                 uuid.UUID `gorm:"type:char(255);not null"`
-	Site                   Site      `gorm:"foreignKey:SiteID"`
+	ID                   uuid.UUID `gorm:"type:char(255);primaryKey"`
+	Gateway              string    `gorm:"type:char(255);not null"`
+	Controller           string    `gorm:"type:char(255);not null"`
+	ControllerIdentifier string    `gorm:"type:char(255);not null"`
+	DeviceType           string    `gorm:"type:char(255);not null"`
+	DeviceIdentifier     string    `gorm:"type:char(255);not null;unique"`
+	DeviceName           string    `gorm:"type:char(255);not null"`
+	BuildingURL          string    `gorm:"type:char(255);not null"`
+	AuthToken            string    `gorm:"type:text;not null"`
+	SiteID               uuid.UUID `gorm:"type:char(255);not null"`
+	Site                 Site      `gorm:"foreignKey:SiteID"`
 }
 
 // Hook to generate UUID before creating a record
